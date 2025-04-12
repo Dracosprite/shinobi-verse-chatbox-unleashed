@@ -4,7 +4,7 @@ import { Scroll, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ChatMessage, { type Message } from './ChatMessage';
 import ChatInput from './ChatInput';
-import { characters, getRandomCharacter } from '@/data/characters';
+import { characters, getRandomCharacter, type Character } from '@/data/characters';
 import { toast } from '@/components/ui/use-toast';
 
 const initialMessages: Message[] = [

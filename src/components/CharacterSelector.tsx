@@ -29,7 +29,15 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
   
-  const selectedCharacter = characters.find(c => c.id === value) || characters[0];
+  // Ensure characters is an array before using it
+  const charactersList = Array.isArray(characters) ? characters : [];
+  const selectedCharacter = charactersList.find(c => c.id === value) || charactersList[0] || {
+    id: 'default',
+    name: 'Default Character',
+    village: 'leaf',
+    color: '#FF7800',
+    image: '👤'
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -56,7 +64,7 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
           <CommandInput placeholder="Search characters..." />
           <CommandEmpty>No character found.</CommandEmpty>
           <CommandGroup className="max-h-[300px] overflow-y-auto">
-            {characters && characters.length > 0 ? characters.map((character) => (
+            {charactersList && charactersList.length > 0 ? charactersList.map((character) => (
               <CommandItem
                 key={character.id}
                 value={character.id}
