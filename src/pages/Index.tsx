@@ -8,23 +8,24 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col p-4 md:p-6">
-      <header className="mb-6 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-naruto-orange mb-2">
+    <div className="min-h-screen flex flex-col p-4 md:p-6 bg-gradient-to-br from-naruto-orange/10 to-naruto-red/10">
+      <header className="mb-6 text-center bg-naruto-orange/20 rounded-lg p-4">
+        <h1 className="text-4xl font-bold text-naruto-orange mb-2 animate-[jutsu-appear_0.5s_ease-out]">
           Shinobi Verse Chat
         </h1>
-        <p className="text-gray-600 max-w-md mx-auto">
-          Connect with Naruto fans from across the ninja world! Share your thoughts, theories, and favorite moments.
+        <p className="text-naruto-black/70 max-w-md mx-auto">
+          Connect with Naruto fans and chat like your favorite characters!
         </p>
       </header>
       
-      <main className="flex-1 flex items-start justify-center">
-        <ChatBox />
+      <main className="flex-1 flex items-center justify-center">
+        <div className="w-full max-w-4xl mx-auto">
+          <ChatBox />
+        </div>
       </main>
       
-      <footer className="mt-8 text-center text-sm text-gray-500">
-        <p>© 2025 Shinobi Verse Chat | Naruto Fan Hub</p>
-        <p className="mt-1">For Naruto fans, by Naruto fans. Not affiliated with the official Naruto franchise.</p>
+      <footer className="mt-8 text-center text-sm text-naruto-black/50">
+        <p>© 2025 Shinobi Verse Chat | Not affiliated with the official Naruto franchise</p>
       </footer>
     </div>
   );
