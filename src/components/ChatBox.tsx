@@ -60,7 +60,7 @@ const getRandomBotResponse = () => {
 
 const ChatBox: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
-  const [userCharacter, setUserCharacter] = useState(getRandomCharacter());
+  const [userCharacter, setUserCharacter] = useState<Character>(characters[0] || getRandomCharacter());
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {

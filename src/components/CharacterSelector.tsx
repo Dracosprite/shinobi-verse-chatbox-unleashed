@@ -29,7 +29,7 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
   
-  const selectedCharacter = characters.find(c => c.id === value);
+  const selectedCharacter = characters.find(c => c.id === value) || characters[0];
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -56,7 +56,7 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
           <CommandInput placeholder="Search characters..." />
           <CommandEmpty>No character found.</CommandEmpty>
           <CommandGroup className="max-h-[300px] overflow-y-auto">
-            {characters.map((character) => (
+            {characters && characters.length > 0 ? characters.map((character) => (
               <CommandItem
                 key={character.id}
                 value={character.id}
@@ -76,7 +76,9 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                   )}
                 />
               </CommandItem>
-            ))}
+            )) : (
+              <CommandItem value="loading">Loading characters...</CommandItem>
+            )}
           </CommandGroup>
         </Command>
       </PopoverContent>
